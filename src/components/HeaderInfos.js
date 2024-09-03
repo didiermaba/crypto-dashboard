@@ -25,13 +25,22 @@ const HeaderInfos = () => {
                 Marchés : {headerData.markets && headerData.markets}
             </li>
            </ul>
+
            <ul className="infos-mkt">
             <li className="global-mkt">
                 Global Market Cap : <PercentChange percent={headerData.
 market_cap_change_percentage_24h_usd} />
+            </li>          
+            <li>
+                BTC dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.btc 
+                    ? headerData.market_cap_percentage.btc.toFixed(1) + "%" 
+                    : "N/A"} 
             </li>
-            <li>BTC dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.btc + "%" } </li> 
-            <li>ETH dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.eth + "%" } </li> 
+            <li>
+                ETH dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.eth 
+                    ? headerData.market_cap_percentage.eth.toFixed(1) + "%" 
+                    : "N/A"} 
+            </li> 
            </ul>
            <TableFilters />
         </div>
