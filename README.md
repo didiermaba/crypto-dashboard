@@ -1,4 +1,4 @@
 
 
-Decouvrez mon app web : `(https://didiermaba.github.io/crypto-dashboard/)`
+Decouvrez mon app web : `https://didiermaba.github.io/crypto-dashboard/`
 
