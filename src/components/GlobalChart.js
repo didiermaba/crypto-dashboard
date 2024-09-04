@@ -7,34 +7,34 @@ const GlobalChart = ({ coinsData }) => {
 
   const colorPicker = (number) => {
     if (number >= 20) {
-        return colors.color1;
+      return colors.color1;
     } else if (number >= 5) {
-        return colors.green2;
+      return colors.green2;
     } else if (number >= 0) {
-        return colors.green1;
+      return colors.green1;
     } else if (number >= -5) {
-        return colors.red1;
+      return colors.red1;
     } else if (number >= -20) {
-        return colors.red2;
+      return colors.red2;
     } else {
-        return colors.black2;
+      return colors.black2;
     }
-  }
+  };
 
   const excludeCoin = (coin) => {
     if (
-        coin === "usdt" ||
-        coin === "usdc" ||
-        coin === "busd" ||
-        coin === "dai" ||
-        coin === "ust" ||
-        coin === "mim" 
+      coin === "usdt" ||
+      coin === "usdc" ||
+      coin === "busd" ||
+      coin === "dai" ||
+      coin === "ust" ||
+      coin === "mim"
     ) {
-      return false;  
+      return false;
     } else {
-        return true;
+      return true;
     }
-  }
+  };
 
   useEffect(() => {
     let chartData = [];
@@ -42,16 +42,15 @@ const GlobalChart = ({ coinsData }) => {
     if (coinsData.length > 0) {
       for (let i = 0; i < 45; i++) {
         if (excludeCoin(coinsData[i].symbol)) {
-            
-            chartData.push({
-                name:
-                coinsData[i].symbol +
-                "" +
-                coinsData[i].market_cap_change_percentage_24h +
-                "%",
-                size: coinsData[i].market_cap,
-                fill: colorPicker(coinsData[i].price_change_percentage_24h),
-            });
+          chartData.push({
+            name:
+              coinsData[i].symbol +
+              "" +
+              coinsData[i].market_cap_change_percentage_24h +
+              "%",
+            size: coinsData[i].market_cap,
+            fill: colorPicker(coinsData[i].market_cap_change_percentage_24h),
+          });
         }
       }
     }
